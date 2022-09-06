@@ -4,7 +4,7 @@ def call(ip,user,credId){
   // copy war
   sh "scp -o StrictHostKeyChecking=no target/app.war ${user}@${ip}:/opt/tomcat9/webapps"
   // stop tomcat
-  sh "ssh ${ip}@${ip} /opt/tomcat9/bin/shutdown.sh"
+  sh "ssh ${user}@${ip} /opt/tomcat9/bin/shutdown.sh"
   // start tomcat
   sh "ssh ${user}@${ip} /opt/tomcat9/bin/startup.sh"
 }
